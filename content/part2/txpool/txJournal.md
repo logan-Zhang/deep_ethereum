@@ -83,7 +83,7 @@ log.Info("Loaded local transaction journal", "transactions", total, "dropped", d
 
 ##  存储交易
 
-![以太坊存储本地交易](https://img.learnblockchain.cn/book_geth/image-20190622234643382.png!de)
+![以太坊存储本地交易](https://img.learnblockchain.cn/book_geth/image-20190622234643382.png)
 
 当交易池新交易来自于本地账户时❶，如果已开启记录本地交易，则将此交易加入journal ❷。到交易池时，将实时存储到 journal 文件中。
 
@@ -127,7 +127,7 @@ defer func() { journal.writer = nil }() //❺
 
 ## 定期更新 journal
 
-![image-20190622234757114](https://img.learnblockchain.cn/book_geth/image-20190622234757114.png!de)
+![image-20190622234757114](https://img.learnblockchain.cn/book_geth/image-20190622234757114.png)
 
 journal 的目的是长期存储本地尚未完成的交易，以便交易不丢失。而文件内容属于交易的RLP编码内容，不便于实时清空已完成或已无效的交易。因此以太坊采取的是定期将交易池在途交易更新到 journal 文件中。
 
